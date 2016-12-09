@@ -3,13 +3,16 @@
     echo "<script> alert('Entrada a conexión')</script>"; // debug
 
     
-    // Se conecta al SGBD 
-    if(!($iden = mysql_connect("localhost", "root", "root"))) 
-    die("Error: No se pudo conectar");
+
+    # Conectamos con MySQL por medio de mysqli de modo que no tengamos 
+    # problemas con los acentos y ñ, etc.
+        $link = new mysqli("localhost","root","root","ARREGLO");
+        if (mysqli_connect_errno()) {
+            die("Error al conectar: ".mysqli_connect_error());
+        }
+        $link->set_charset("utf8");
 	
-    // Selecciona la base de datos 
-    if(!mysql_select_db("Usuario", $iden)) 
-    die("Error: No existe la base de datos");
+
 
     //Pase de variables.  
     $Idioma=$_POST["Idioma"."1"];   
@@ -34,7 +37,9 @@
     </form>
 
 <?
+    // Libero la memoria asociada a result y cierro base de datos
+    mysqli_free_result($result);
     // Cierra la conexión con la base de datos 
-    mysql_close($iden); 
-    // echo "<script> alert('Salida de conexión')</script>"; // debug
+    $close = mysqli_close($link) 
+        or die("Ha sucedido un error inexperado en la desconexion de la base de datos");
 ?>
