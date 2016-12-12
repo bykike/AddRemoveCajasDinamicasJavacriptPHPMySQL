@@ -98,7 +98,7 @@
 <form id="myForm" action="leerArregloyMostar.php" method="POST">
     <div id="input1" style="margin-bottom:4px;" class="clonedInput">
         
-        <select class="entradaTxt" name="Idioma" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
+        <select class="entradaTxt" name="Idioma[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
                     <option value="" class="selected">Seleccione Idioma</option>
                     <option value="Inglés">Inglés</option>
                     <option value="Francés">Francés</option>
@@ -106,7 +106,7 @@
                     <option value="Otros">Otros</option>
         </select> 
         
-        <select class="entradaTxt" name="NivelHablado" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
+        <select class="entradaTxt" name="NivelHablado[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
                     <option value="" class="selected">Nivel hablado</option>
                     <option value="Nativo">Nativo</option>
                     <option value="Bilingue">Bilingue</option>
@@ -115,7 +115,7 @@
                     <option value="Bajo">Bajo</option>
         </select>        
         
-        <select class="entradaTxt" name="NivelEscrito" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
+        <select class="entradaTxt" name="NivelEscrito[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
                     <option value="" class="selected">Nivel escrito</option>
                     <option value="Nativo">Nativo</option>
                     <option value="Bilingue">Bilingue</option>
