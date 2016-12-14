@@ -39,8 +39,8 @@
             });
  
             $('#btnDel').click(function() {
-                var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-                $('#input' + num).remove();     // remove the last element
+                var num = $('.clonedInput').length; // cuantos campos duplicados de entrada tengo
+                $('#input' + num).remove();     // quitamos el último elemento
  
                 // enable the "add" button
                 $('#btnAdd').attr('disabled','');
@@ -123,10 +123,6 @@
                     <option value="Medio">Medio</option>
                     <option value="Bajo">Bajo</option>
         </select>        
-        
-        <!-- Idioma: <input type="text" name="Idioma1" id="Idioma1" />
-        Nivel hablado: <input type="text" name="NivelHablado1" id="NivelHablado1" />
-        Nivel escrito: <input type="text" name="NivelEscrito1" id="NivelEscrito1" /> -->
         
     </div>
                  
