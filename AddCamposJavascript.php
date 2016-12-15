@@ -18,22 +18,22 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#btnAdd').click(function() {
-                var num     = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-                var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
+                var num     = $('.clonedInput').length; // Cuántos campos de entrada "duplicables" que tenemos actualmente
+                var newNum  = new Number(num + 1);      // Se agrega el ID numérico del nuevo campo de entrada
  
-                // create the new element via clone(), and manipulate it's ID using newNum value
+                // crear el nuevo elemento via clone(), y manipulo si el ID usa nuevo valor
                 var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
  
-                // manipulate the name/id values of the input inside the new element
+                // Manipular los valores de nombre / id de la entrada dentro del nuevo elemento
                 newElem.children(':first').attr('id', 'idioma' + newNum).attr('idioma', 'idioma' + newNum);
  
-                // insert the new element after the last "duplicatable" input field
+                // Inserto el nuevo elemento después del último campo de entrada "duplicable"
                 $('#input' + num).after(newElem);
  
-                // enable the "remove" button
+                // habilito el botón de remove
                 $('#btnDel').attr('disabled','');
  
-                // business rule: you can only add 10 names
+                // Regla de negocio: sólo puede agregar 10 nombres
                 if (newNum == 10)
                     $('#btnAdd').attr('disabled','disabled');
             });
@@ -42,10 +42,10 @@
                 var num = $('.clonedInput').length; // cuantos campos duplicados de entrada tengo
                 $('#input' + num).remove();     // quitamos el último elemento
  
-                // enable the "add" button
+                // habilito el boton add
                 $('#btnAdd').attr('disabled','');
  
-                // if only one element remains, disable the "remove" button
+                // Si sólo queda un elemento, desactivo el botón "Eliminar"
                 if (num-1 == 1)
                     $('#btnDel').attr('disabled','disabled');
             });
