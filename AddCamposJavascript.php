@@ -30,7 +30,7 @@
                 // Inserto el nuevo elemento después del último campo de entrada "duplicable"
                 $('#input' + num).after(newElem);
  
-                // habilito el botón de remove
+                // Habilito el botón de remove
                 $('#btnDel').attr('disabled','');
  
                 // Regla de negocio: sólo puede agregar 10 nombres
@@ -39,10 +39,10 @@
             });
  
             $('#btnDel').click(function() {
-                var num = $('.clonedInput').length; // cuantos campos duplicados de entrada tengo
-                $('#input' + num).remove();     // quitamos el último elemento
+                var num = $('.clonedInput').length; // Cuántos campos duplicados de entrada tengo
+                $('#input' + num).remove();     // Quitamos el último elemento
  
-                // habilito el boton add
+                // Habilito el boton add
                 $('#btnAdd').attr('disabled','');
  
                 // Si sólo queda un elemento, desactivo el botón "Eliminar"
