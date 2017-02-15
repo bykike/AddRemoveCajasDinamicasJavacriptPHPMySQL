@@ -3,19 +3,23 @@
 <head>
     <title></title>
 
-        
         <meta charset="UTF-8">
         <title>Trabaja con nosotros</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/style.css">
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
   
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script> -->
     <script src="jquery.min.js"></script>
     
     <script type="text/javascript">
         $(document).ready(function() {
+
+            $("#parrafo").text("Datos Personales"); // Escribo la cabecera en el id al cargar la web
+
             $('#btnAdd').click(function() {
                 var num     = $('.clonedInput').length; // Cuántos campos de entrada "duplicables" que tenemos actualmente
                 var newNum  = new Number(num + 1);      // Se agrega el ID numérico del nuevo campo de entrada
@@ -56,89 +60,91 @@
 </head>
  
 <body>
+
+<div class="container">
   
         <!-- ##########################################################
         ## Sección Datos Personales
         ########################################################### -->
-           
-          <p>Datos Personales</p>
 
- <form id="myForm" action="leerArregloyMostar.php" method="POST">       
- 
-          <p class="left entradaTxt">
-            <label for="Nombre">Nombre</label>
-            <input type="text" name="Nombre" placeholder="Escriba su nombre" required>
-          </p>
-            
-          <p class="entradaTxt">
-            <label for="Apellidos">Apellidos</label>
-            <input type="text" name="Apellidos" placeholder="Escriba sus apellidos">
-          </p>
-            
-          <p class="entradaTxt">
-            <label for="País">País</label>
-            <select class="entradaTxt" name="Pais" data-placeholder="Seleccione país" tabindex="-1" aria-hidden="true" >
-                    <option value="" class="selected">Seleccione país</option>
-                    <option value="España">España</option>
-                    <option value="Otro">Otro</option>
-            </select>
-          </p>
+        <div id="parrafo"></div>
 
-      
-    <table>
-        
-        <tr>
-          <td width="120px"><strong>Idioma</strong></td>
-          <td width="100px"><strong>Nivel hablado</strong></td>
-          <td width="110px"><strong>Nivel escrito</strong></td>
-        </tr>
-        
-    </table>
-    
-<!-- <form id="myForm" action="leerArregloyMostar.php" method="POST"> -->
-    <div id="input1" style="margin-bottom:4px;" class="clonedInput">
-        
-        <select class="entradaTxt" name="Idioma[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
-                    <option value="" class="selected">Seleccione Idioma</option>
-                    <option value="Inglés">Inglés</option>
-                    <option value="Francés">Francés</option>
-                    <option value="Alemán">Alemán</option>
-                    <option value="Otros">Otros</option>
-        </select> 
-        
-        <select class="entradaTxt" name="NivelHablado[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
-                    <option value="" class="selected">Nivel hablado</option>
-                    <option value="Nativo">Nativo</option>
-                    <option value="Bilingue">Bilingue</option>
-                    <option value="Alto">Alto</option>
-                    <option value="Medio">Medio</option>
-                    <option value="Bajo">Bajo</option>
-        </select>        
-        
-        <select class="entradaTxt" name="NivelEscrito[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
-                    <option value="" class="selected">Nivel escrito</option>
-                    <option value="Nativo">Nativo</option>
-                    <option value="Bilingue">Bilingue</option>
-                    <option value="Alto">Alto</option>
-                    <option value="Medio">Medio</option>
-                    <option value="Bajo">Bajo</option>
-        </select>        
-        
-    </div>
-                 
-    <br>
-    <br>
-    
-    <div>
-        <input type="button" id="btnAdd" value="Añadir Experiencia" />
-        <input type="button" id="btnDel" value="Quitar Experiencia" />        
-    </div>
-    
-    <br>
-    <br>
-    
-    <input type="submit" value="Enviar MySQL" />
-</form>
+         <form id="myForm" action="leerArregloyMostar.php" method="POST">       
+         
+                    <div class="row">
+                      <div class="col-sm-4">
+                            <label for="Nombre">Nombre</label>
+                            <input type="text" name="Nombre" placeholder="Escriba su nombre" required>
+                      </div>
+                      <div class="col-sm-4">
+                            <label for="Apellidos">Apellidos</label>
+                            <input type="text" name="Apellidos" placeholder="Escriba sus apellidos">
+                      </div>
+                      <div class="col-sm-4">
+                    <label for="País">País</label>
+                    <select class="entradaTxt" name="Pais" data-placeholder="Seleccione país" tabindex="-1" aria-hidden="true" >
+                            <option value="" class="selected">Seleccione país</option>
+                            <option value="España">España</option>
+                            <option value="Otro">Otro</option>
+                    </select>
+                      </div>
+                    </div>
+
+              
+            <table>
+                
+                <tr>
+                  <td width="120px"><strong>Idioma</strong></td>
+                  <td width="100px"><strong>Nivel hablado</strong></td>
+                  <td width="110px"><strong>Nivel escrito</strong></td>
+                </tr>
+                
+            </table>
+
+            <div id="input1" style="margin-bottom:4px;" class="clonedInput">
+                
+                <select class="entradaTxt" name="Idioma[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
+                            <option value="" class="selected">Seleccione Idioma</option>
+                            <option value="Inglés">Inglés</option>
+                            <option value="Francés">Francés</option>
+                            <option value="Alemán">Alemán</option>
+                            <option value="Otros">Otros</option>
+                </select> 
+                
+                <select class="entradaTxt" name="NivelHablado[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
+                            <option value="" class="selected">Nivel hablado</option>
+                            <option value="Nativo">Nativo</option>
+                            <option value="Bilingue">Bilingue</option>
+                            <option value="Alto">Alto</option>
+                            <option value="Medio">Medio</option>
+                            <option value="Bajo">Bajo</option>
+                </select>        
+                
+                <select class="entradaTxt" name="NivelEscrito[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
+                            <option value="" class="selected">Nivel escrito</option>
+                            <option value="Nativo">Nativo</option>
+                            <option value="Bilingue">Bilingue</option>
+                            <option value="Alto">Alto</option>
+                            <option value="Medio">Medio</option>
+                            <option value="Bajo">Bajo</option>
+                </select>        
+                
+            </div>
+                         
+            <br>
+            <br>
+            
+            <div>
+                <input type="button" id="btnAdd" value="Añadir Experiencia" />
+                <input type="button" id="btnDel" value="Quitar Experiencia" />        
+            </div>
+            
+            <br>
+            <br>
+            
+            <input type="submit" value="Enviar MySQL" />
+        </form>
  
+</div>
 </body>
 </html>
