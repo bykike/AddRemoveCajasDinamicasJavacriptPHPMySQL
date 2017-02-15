@@ -2,9 +2,17 @@
 
 /* Aquí guardaremos el arreglo para el usuario */
 
+$nombre = $_POST["Nombre"];
+$apellidos = $_POST["Apellidos"];
+$pais = $_POST["Pais"];
+
 $arrayIdioma = $_POST["Idioma"];
 $arrayNivelHablado = $_POST["NivelHablado"];
 $arrayNivelEscrito = $_POST["NivelEscrito"];
+
+echo $nombre ."<br/>";
+echo $apellidos."<br/>";
+echo $pais."<br/><br/>";
 
 
 $i=0;

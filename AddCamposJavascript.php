@@ -1,5 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-                    "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <title></title>
@@ -51,6 +50,7 @@
             });
  
             $('#btnDel').attr('disabled','disabled');
+
         });
     </script>
 </head>
@@ -63,7 +63,7 @@
            
           <p>Datos Personales</p>
 
-        
+ <form id="myForm" action="leerArregloyMostar.php" method="POST">       
  
           <p class="left entradaTxt">
             <label for="Nombre">Nombre</label>
@@ -95,7 +95,7 @@
         
     </table>
     
-<form id="myForm" action="leerArregloyMostar.php" method="POST">
+<!-- <form id="myForm" action="leerArregloyMostar.php" method="POST"> -->
     <div id="input1" style="margin-bottom:4px;" class="clonedInput">
         
         <select class="entradaTxt" name="Idioma[]" data-placeholder="Seleccione Idioma" tabindex="-1" aria-hidden="true" required>
