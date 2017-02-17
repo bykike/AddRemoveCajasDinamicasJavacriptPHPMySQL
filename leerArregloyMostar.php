@@ -6,13 +6,18 @@
 	$apellidos = $_POST["Apellidos"];
 	$pais = $_POST["Pais"];
 
-	$arrayIdioma = $_POST["Idioma"];
-	$arrayNivelHablado = $_POST["NivelHablado"];
-	$arrayNivelEscrito = $_POST["NivelEscrito"];
 
 	echo $nombre ."<br/>";
 	echo $apellidos."<br/>";
-	echo $pais."<br/><br/>";
+	echo $pais."<br/>";
+	echo $DateRegistro."<br/><br/>";
+
+	$arrayIdioma = $_POST["Idioma"];
+	$arrayNivelHablado = $_POST["NivelHablado"];
+	$arrayNivelEscrito = $_POST["NivelEscrito"];
+ 
+	// Registro Date para usar en las dos tablas y porder posteriormente relacionarlas
+	$DateRegistro = date("Y-m-d H:i:s"); 
 
 
     // Conectamos con MySQL por medio de mysqli de modo que no tengamos problemas con los acentos y ñ, etc.
@@ -25,7 +30,7 @@
 
 
     // Guardamos base dedatos los valores de variables de Nombres.  
-    $result = mysqli_query($link, "INSERT INTO Nombres (NombreBD, ApellidosBD, PaisBD) VALUES ('$nombre', '$apellidos', '$pais')");
+    $result = mysqli_query($link, "INSERT INTO Nombres (NombreBD, ApellidosBD, PaisBD, DateRegistroBD) VALUES ('$nombre', '$apellidos', '$pais', '$DateRegistro')");
     if(!$result)  //la variable que inserta a la base de datos.
 	   echo "No se pudieron registrar los datos";
 
@@ -34,9 +39,9 @@
     // Guardamos todos los datos.  
 	$i=0;
 	while($i < count($arrayIdioma)) {
-	   echo $arrayIdioma[$i]." - ".$arrayNivelHablado[$i]." - ".$arrayNivelEscrito[$i]."<br>"; 
+	   echo $arrayIdioma[$i]." - ".$arrayNivelHablado[$i]." - ".$arrayNivelEscrito[$i]." - ".$DateRegistro."<br>"; 
 
-	   $sql = "INSERT INTO Idiomas (IdiomaBD, NivelHabladoBD, NivelEscritoBD) VALUES ('$arrayIdioma[$i]', '$arrayNivelHablado[$i]', '$arrayNivelEscrito[$i]')";
+	   $sql = "INSERT INTO Idiomas (IdiomaBD, NivelHabladoBD, NivelEscritoBD, DateRegistroBD) VALUES ('$arrayIdioma[$i]', '$arrayNivelHablado[$i]', '$arrayNivelEscrito[$i]', '$DateRegistro')";
 	   $result = mysqli_query($link,  $sql);
     	if(!$result)  //la variable que inserta a la base de datos.
 	       echo "No se pudieron registrar los datos";	   
