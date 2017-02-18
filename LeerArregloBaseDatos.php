@@ -7,8 +7,8 @@
     
      <style type="text/css">
 
-         table, td {
-                width: 60%;
+         table, td, th {
+                width: 100%;
                 background-color:#f0f0f0; 
                 font-family:verdana; 
                 font-size:90%;
@@ -27,42 +27,59 @@
          }
          
     </style>
-    
 
     
 </head>
     <body>
-
 		<?php
-
-		    // Conectamos con MySQL por medio de mysqli de modo que no tengamos problemas con los acentos y ñ, etc.
+		    // Conectamos con MySQL.
 		    $link = new mysqli("localhost","root","root","Arreglo");
 		    if (mysqli_connect_errno()) {
 		            die("Error al conectar: ".mysqli_connect_error());
 		        }
-		    // $link->set_charset("utf8");
-			$tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+			$tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
 
-			
-
-			//$consulta_mysql="select * from Nombres where CategoriasInteres like '%" .$_POST[CategoriasInteres]. "%' and Pais like '%" .$_POST[Pais]. "%'";
-			$consulta_mysql="select * from Nombres";
-
+			$consulta_mysql="SELECT * FROM Nombres, Idiomas where Nombres.DateRegistroBD = Idiomas.DateRegistroBD";
 		    $resultado_consulta_mysql=mysqli_query($link, $consulta_mysql);
-		            
-		    while (($fila = mysqli_fetch_array($resultado_consulta_mysql))!=NULL){
-		    		echo $fila['idUserBD']." ".$fila['NombreBD']." ".$fila['ApellidosBD']." ".$fila['PaisBD']." ".$fila['DateRegistroBD']."<br>";
-		           /* printf("<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>",         
-		                     $fila['NombreBD'], $fila['ApellidosBD'], $fila['PaisBD'], $fila['DateRegistroBD']);
-					*/
-		           }
-
-
-		    # Libero la memoria asociada a result y cierro base de datos
-		    mysqli_free_result($resultado_consulta_mysql);
-		    mysqli_close($link);
-
 		?>
+		     
+			<table>
+				<tr>
+		          <th>Nombre</th>
+		          <th>Apellidos</th>
+				  <th>País</th>
+				  <th>Date Registro</th>
 
+				  <th>Idioma</th>
+		          <th>Nivel Hablado</th>
+				  <th>Nivel Escrito</th>
+				  <th>Date Registro</th>
+		        </tr>
+			    <?
+			    while (($fila = mysqli_fetch_array($resultado_consulta_mysql))!=NULL){
+			    ?>
+			    	<tr>
+			    	  <!-- Muestra campoos de Nombres -->
+			          <td><?php echo $fila['NombreBD']?></td>
+			          <td><?php echo $fila['ApellidosBD']?></td>
+			          <td><?php echo $fila['PaisBD']?></td>
+			          <td><?php echo $fila['DateRegistroBD']?></td>
+
+			          <!-- Muestra campoos de Idiomas -->
+			          <td><?php echo $fila['IdiomaBD']?></td>
+			          <td><?php echo $fila['NivelHabladoBD']?></td>
+			          <td><?php echo $fila['NivelEscritoBD']?></td>
+			          <td><?php echo $fila['DateRegistroBD']?></td>
+			        </tr>
+			    <?
+			        }
+
+			    # Libero la memoria asociada a result y cierro base de datos
+			    mysqli_free_result($resultado_consulta_mysql);
+			    mysqli_close($link);
+
+				?>
+
+      		</table> 
 	</body>
 </html>
