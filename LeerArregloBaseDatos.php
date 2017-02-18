@@ -1,36 +1,21 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Leer registros</title>
     
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/docs.css">
     <meta charset="UTF-8">
-    
-     <style type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-         table, td, th {
-                width: 100%;
-                background-color:#f0f0f0; 
-                font-family:verdana; 
-                font-size:90%;
-                border: 1px solid black;
-                padding: 10px;
-                border-spacing: 10px;
-                border-collapse: separate;
-         }
-         
-         h1 {
-                font-family: Arial, Helvetica, sans-serif;
-                font-style: normal;
-                color:purple;
-                text-align:center;
-                font:20px;
-         }
-         
+     <style type="text/css">
+     
     </style>
 
     
 </head>
     <body>
+    <div class="container">
 		<?php
 		    // Conectamos con MySQL.
 		    $link = new mysqli("localhost","root","root","Arreglo");
@@ -43,34 +28,37 @@
 		    $resultado_consulta_mysql=mysqli_query($link, $consulta_mysql);
 		?>
 		     
-			<table>
-				<tr>
-		          <th>Nombre</th>
-		          <th>Apellidos</th>
-				  <th>País</th>
-				  <th>Date Registro</th>
+			<div class="row show-grid">
 
-				  <th>Idioma</th>
-		          <th>Nivel Hablado</th>
-				  <th>Nivel Escrito</th>
-				  <th>Date Registro</th>
-		        </tr>
+		          <div class="col-md-1">Nombre</div>
+		          <div class="col-md-1">Apellidos</div>
+				  <div class="col-md-1">País</div>
+				  <div class="col-md-1">Date Registro</div>
+
+				  <div class="col-md-1">Idioma</div>
+		          <div class="col-md-1">Nivel Hablado</div>
+				  <div class="col-md-1">Nivel Escrito</div>
+				  <div class="col-md-1">Date Registro</div>
+
+			</div>
 			    <?
 			    while (($fila = mysqli_fetch_array($resultado_consulta_mysql))!=NULL){
 			    ?>
-			    	<tr>
-			    	  <!-- Muestra campoos de Nombres -->
-			          <td><?php echo $fila['NombreBD']?></td>
-			          <td><?php echo $fila['ApellidosBD']?></td>
-			          <td><?php echo $fila['PaisBD']?></td>
-			          <td><?php echo $fila['DateRegistroBD']?></td>
+					<div class="row show-grid">
 
-			          <!-- Muestra campoos de Idiomas -->
-			          <td><?php echo $fila['IdiomaBD']?></td>
-			          <td><?php echo $fila['NivelHabladoBD']?></td>
-			          <td><?php echo $fila['NivelEscritoBD']?></td>
-			          <td><?php echo $fila['DateRegistroBD']?></td>
-			        </tr>
+					    	  <!-- Muestra campoos de Nombres -->
+					          <div class="col-md-1"><?php echo $fila['NombreBD']?></div>
+					          <div class="col-md-1"><?php echo $fila['ApellidosBD']?></div>
+					          <div class="col-md-1"><?php echo $fila['PaisBD']?></div>
+					          <div class="col-md-1"><?php echo $fila['DateRegistroBD']?></div>
+
+					          <!-- Muestra campoos de Idiomas -->
+					          <div class="col-md-1"><?php echo $fila['IdiomaBD']?></div>
+					          <div class="col-md-1"><?php echo $fila['NivelHabladoBD']?></div>
+					          <div class="col-md-1"><?php echo $fila['NivelEscritoBD']?></div>
+					          <div class="col-md-1"><?php echo $fila['DateRegistroBD']?></div>
+
+					</div>
 			    <?
 			        }
 
@@ -79,7 +67,6 @@
 			    mysqli_close($link);
 
 				?>
-
-      		</table> 
+    </div>
 	</body>
 </html>
