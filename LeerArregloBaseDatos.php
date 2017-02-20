@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Leer registros</title>
+    <title>Leer registros de la base de datos</title>
     
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/docs.css">
@@ -46,13 +46,13 @@
 			    ?>
 					<div class="row show-grid">
 
-					    	  <!-- Muestra campoos de Nombres -->
+					    	  <!-- Muestra campos de Nombres -->
 					          <div class="col-md-1"><?php echo $fila['NombreBD']?></div>
 					          <div class="col-md-1"><?php echo $fila['ApellidosBD']?></div>
 					          <div class="col-md-1"><?php echo $fila['PaisBD']?></div>
 					          <div class="col-md-1"><?php echo $fila['DateRegistroBD']?></div>
 
-					          <!-- Muestra campoos de Idiomas -->
+					          <!-- Muestra campos de Idiomas -->
 					          <div class="col-md-1"><?php echo $fila['IdiomaBD']?></div>
 					          <div class="col-md-1"><?php echo $fila['NivelHabladoBD']?></div>
 					          <div class="col-md-1"><?php echo $fila['NivelEscritoBD']?></div>

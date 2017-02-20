@@ -4,7 +4,7 @@
     <title></title>
 
         <meta charset="UTF-8">
-        <title>Trabaja con nosotros</title>
+        <title>Ejemplo de arreglo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="js/bootstrap.js"></script>
