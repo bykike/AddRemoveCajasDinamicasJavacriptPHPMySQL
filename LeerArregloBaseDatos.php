@@ -17,13 +17,13 @@
     <body>
     <div class="container">
 		<?php
-		    // Conectamos con MySQL.
+		    // Conectamos con MySQL
 		    $link = new mysqli("localhost","root","root","Arreglo");
 		    if (mysqli_connect_errno()) {
 		            die("Error al conectar: ".mysqli_connect_error());
 		        }
 			$tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
-
+			// Busco hasta encontrar la coincidencia entre las dos tablas
 			$consulta_mysql="SELECT * FROM Nombres, Idiomas where Nombres.DateRegistroBD = Idiomas.DateRegistroBD";
 		    $resultado_consulta_mysql=mysqli_query($link, $consulta_mysql);
 		?>

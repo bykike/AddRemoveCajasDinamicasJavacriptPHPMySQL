@@ -1,6 +1,6 @@
 <?php
 
-	/* Aquí guardaremos el arreglo para el usuario */
+	// Aquí guardaremos el arreglo para el usuario 
 
 	$nombre = $_POST["Nombre"];
 	$apellidos = $_POST["Apellidos"];
@@ -25,8 +25,9 @@
     if (mysqli_connect_errno()) {
             die("Error al conectar: ".mysqli_connect_error());
         }
+    // Para que se muestren las tildes correctamente.
     // $link->set_charset("utf8");
-	$tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+	$tildes = $link->query("SET NAMES 'utf8'"); 
 
 
     // Guardamos base dedatos los valores de variables de Nombres.  
@@ -50,7 +51,6 @@
 
     // Libero la memoria asociada a result y cierro base de datos
     mysqli_free_result($result);
-    // Cierra la conexión con la base de datos 
     $close = mysqli_close($link) 
         or die("Ha sucedido un error inexperado en la desconexion de la base de datos");
 
