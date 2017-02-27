@@ -64,7 +64,6 @@
 <?php
     // Obtengo la fecha y hora usando el mismo formato de MySql
     $hoy = date("Y-m-d H:i:s"); 
-    //echo $hoy . "<br/>"; 
     print_r($hoy);
 ?>
 <div class="container">
